@@ -27,8 +27,11 @@ if($dbsql->connect_errno ){
     echo "Error: " . $dbsql->connect_error . "\n";
     exit;
 }
-$sqltq[0] = "";
-$sqltq[1] = "";
+$sqltq[0] = "CREATE TABLE Users(id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+Username VARCHAR(255) NOT NULL,
+Password VARCHAR(255) NOT NULL,
+last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)";
+//$sqltq[1] = "";
 
 foreach ($sqltq as $value) {
     if($dbsql->query($value)===true){

@@ -1,6 +1,6 @@
 <?php
 include_once ("conf/conf.php");
-
+include_once ("DB/Loginsys.php"); 
 
 ?>
 <head>  
@@ -24,6 +24,18 @@ switch (basename($_SERVER['PHP_SELF'],'.php')) {
     <script src="js/LoginHandeler.js"></script>
 <?php
         break;
+    case 'Hijstest':
+//login valid
+if (isset($_COOKIE["authtoken"])) {
+   
+    CheckLogin($_COOKIE["authtoken"]);
+}else {
+    echo  "<meta http-equiv = 'refresh' content = '0; url = ".$conf["docroot"] ."' />";  
+}
+?>
+
+
+<?php
     default:
 ?>  
 

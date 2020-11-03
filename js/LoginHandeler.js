@@ -1,11 +1,11 @@
 function onloginbtn(){
 
-    var username = document.getElementById("Username").innerText;
-    var Password = document.getElementById("Password").innerText;
+    var username = document.getElementById("Username").value;
+    var Password = document.getElementById("Password").value;
     Login(username,Password)
 }
 async function Login (Username,Password) {
-    var data = {Username:Username,Password:Password}
+    var data = {'Username':Username ,'Password':Password}
     console.log(data);
     var result =await fetch("API/LoginAPI.php",
     {
@@ -17,5 +17,8 @@ async function Login (Username,Password) {
         body: JSON.stringify(data)
     }
     )
-    console.log(result); 
+    var resultobj = await result.json();
+    
+    document.cookie = "authtoken="+resultobj.Authtoken;
+    console.log(document.cookie);
 }
