@@ -10,14 +10,7 @@ include_once("includes/Head.php");
 include_once("includes/Header.php");
 ?>
 <div class = "Content_Container">
-<form action="" class="Login_Form">
-<input id="Username" type="text" name="Username" placeholder="Username">
-<br>    
-<input id="Password" type="password" name="Password" placeholder="Password">
-<br>
 
-</form>
-<button id="Login" class="LoginBtn" onclick="onloginbtn()">Login</button>
 </div>
 
 <?php

@@ -13,8 +13,8 @@
     margin-right: 10px;
 }
 .Content_Container{
-    border:     1px solid black;
-    overflow-y: scroll;
+    /*border:     1px solid black;*/
+
     width:      90%;
     height:     20em;
     margin:     10% 5%;
@@ -40,4 +40,26 @@
     margin: 0;
     padding: 0;
     padding-right: 2.5rem;
+}
+.Login_Form{
+    width: 50%;
+    margin:0 25%;
+}
+.Login_Form input{
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width: 45%;
+    margin:1% 27.5%;
+    
+
+}
+.LoginBtn{
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width: 15%;
+    margin:1% 42.5%;
+    padding: 1%;
+    display: block;
 }

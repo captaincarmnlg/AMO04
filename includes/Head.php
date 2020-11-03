@@ -19,9 +19,9 @@ basename($_SERVER['PHP_SELF'])
 </title>
 <?php
 switch (basename($_SERVER['PHP_SELF'],'.php')) {
-    case 'value':
+    case 'index':
 ?>
-
+    <script src="js/LoginHandeler.js"></script>
 <?php
         break;
     default:
