@@ -1,11 +1,36 @@
 <?php
 
 function CheckLogin($LoginToken){
-    $token = explode(",",$_COOKIE["authtoken"] );
-    //$token[0];//id
+    include_once( "db.php");
+    $token = explode(",",$LoginToken);
+    $dbsql = new mysqli($db["host"], $db["username"],$db["password"],$db["db"]);
+    $sql = "SELECT CAST(CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END as int)as tf FROM users WHERE `id` = %s AND `Password` = '%s'";
     
-    //$token[1];//password hash
-    
+
+    if ($dbsql->connect_errno) {
+        echo    "sorry, couldn't connect to database";
+        echo "Error: Failed to make a MySQL connection, here is why: \n";
+        echo "Errno: " . $dbsql->connect_errno . "\n";
+        echo "Error: " . $dbsql->connect_error . "\n";
+    exit;
+    }
+    $result = $dbsql->query(sprintf($sql,$dbsql -> real_escape_string($token[0]),$dbsql -> real_escape_string($token[1]) ));
+    if($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+            
+            return ($row["tf"]!=0);
+            
+        
+            
+      
+    }else {
+            echo "Error: " . $dbsql->error . "\n";
+            echo sprintf($sql,$dbsql -> real_escape_string($token[0]),$dbsql -> real_escape_string($token[1]) );
+        
+    }
+    $dbsql->close();
+
+
 }
 function Login($Username,$Password){
 include_once("db.php");

@@ -6,7 +6,9 @@
 <div class="Screen_Name_Container">   
 <h1>
 <?php
-echo basename($_SERVER['PHP_SELF'],".php")
+if (basename($_SERVER['PHP_SELF'],'.php')!="index") {
+    echo basename($_SERVER['PHP_SELF'],".php");
+}
 ?>
 </h1>
 </div>

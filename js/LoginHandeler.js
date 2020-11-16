@@ -17,8 +17,15 @@ async function Login (Username,Password) {
         body: JSON.stringify(data)
     }
     )
-    var resultobj = await result.json();
     
-    document.cookie = "authtoken="+resultobj.Authtoken;
+    try {
+        var resultobj = await result.json();
+        document.cookie = "authtoken="+resultobj.Authtoken;
+        window.location.replace("http://localhost/AMO04/Hijstest.php");
+    } catch (error) {
+        
+    }
+    
+    
     console.log(document.cookie);
 }

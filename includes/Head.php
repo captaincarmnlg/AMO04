@@ -17,7 +17,20 @@ include_once ("DB/Loginsys.php");
 basename($_SERVER['PHP_SELF'])
 ?>
 </title>
+
 <?php
+if (basename($_SERVER['PHP_SELF'],'.php')!="index") {
+    if (isset($_COOKIE["authtoken"])) {
+   
+        if (!CheckLogin($_COOKIE["authtoken"])) {
+            echo  "<meta http-equiv = 'refresh' content = '0; url = ".$conf["docroot"] ."' />";
+        } 
+    }else {
+        echo  "<meta http-equiv = 'refresh' content = '0; url = ".$conf["docroot"] ."' />";  
+    }
+}
+
+
 switch (basename($_SERVER['PHP_SELF'],'.php')) {
     case 'index':
 ?>
@@ -26,14 +39,9 @@ switch (basename($_SERVER['PHP_SELF'],'.php')) {
         break;
     case 'Hijstest':
 //login valid
-if (isset($_COOKIE["authtoken"])) {
-   
-    CheckLogin($_COOKIE["authtoken"]);
-}else {
-    echo  "<meta http-equiv = 'refresh' content = '0; url = ".$conf["docroot"] ."' />";  
-}
-?>
 
+?>
+<script src="js/HijstestHandeler.js"></script>
 
 <?php
     default:
