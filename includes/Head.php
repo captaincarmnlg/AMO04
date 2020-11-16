@@ -42,7 +42,7 @@ switch (basename($_SERVER['PHP_SELF'],'.php')) {
 
 ?>
 <script src="js/HijstestHandeler.js"></script>
-
+<link rel="stylesheet" href="css/Hijstest.css">
 <?php
     default:
 ?>  
