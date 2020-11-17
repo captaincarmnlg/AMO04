@@ -1,11 +1,11 @@
 function onloginbtn(){
 
-    var username = document.getElementById("Username").value;
+    var Mail = document.getElementById("Mail").value;
     var Password = document.getElementById("Password").value;
-    Login(username,Password)
+    Login(Mail,Password)
 }
-async function Login (Username,Password) {
-    var data = {'Username':Username ,'Password':Password}
+async function Login (Mail,Password) {
+    var data = {'Mail':Mail ,'Password':Password}
     console.log(data);
     var result =await fetch("API/LoginAPI.php",
     {

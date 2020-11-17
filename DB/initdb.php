@@ -28,9 +28,14 @@ if($dbsql->connect_errno ){
     exit;
 }
 $sqltq[0] = "CREATE TABLE Users(id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+Email VARCHAR(255) NOT NULL,
 Username VARCHAR(255) NOT NULL,
 Password VARCHAR(255) NOT NULL,
-last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)";
+last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+CONSTRAINT passuser UNIQUE (EMail,Password)
+)
+
+";
 //$sqltq[1] = "";
 
 foreach ($sqltq as $value) {

@@ -8,7 +8,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 $data = json_decode(file_get_contents("php://input"));
 
-echo json_encode(array("Authtoken" => Login($data->Username,$data->Password)));
+echo json_encode(array("Authtoken" => Login($data->Mail,$data->Password)));
 
 
 

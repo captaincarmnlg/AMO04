@@ -11,7 +11,7 @@ include_once("includes/Header.php");
 ?>
 <div class = "Content_Container">
 <form action="" class="Login_Form">
-<input id="Username" type="text" name="Username" placeholder="Username">
+<input id="Mail" type="text" name="Mail" placeholder="E-mail">
 <br>    
 <input id="Password" type="password" name="Password" placeholder="Password">
 <br>

@@ -32,7 +32,7 @@ function CheckLogin($LoginToken){
 
 
 }
-function Login($Username,$Password){
+function Login($Mail,$Password){
 include_once("db.php");
 $dbsql = new mysqli($db["host"], $db["username"],$db["password"],$db["db"]);
 if($dbsql->connect_errno ){
@@ -42,8 +42,8 @@ if($dbsql->connect_errno ){
     echo "Error: " . $dbsql->connect_error . "\n";
     exit;
 }
-$sql = "SELECT `id`,`Password` FROM `users` WHERE Username='%s' AND Password='%s' LIMIT 1";
-$result = $dbsql->query(sprintf($sql,$dbsql -> real_escape_string($Username),$dbsql -> real_escape_string(hash('sha256',$Password))));
+$sql = "SELECT `id`,`Password` FROM `users` WHERE EMail='%s' AND Password='%s' LIMIT 1";
+$result = $dbsql->query(sprintf($sql,$dbsql -> real_escape_string($Mail),$dbsql -> real_escape_string(hash('sha256',$Password))));
 if($result->num_rows > 0) {
     $row = $result->fetch_assoc();
         return array( strval($row["id"]),$row["Password"]);
