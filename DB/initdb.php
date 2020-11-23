@@ -27,16 +27,23 @@ if($dbsql->connect_errno ){
     echo "Error: " . $dbsql->connect_error . "\n";
     exit;
 }
-$sqltq[0] = "CREATE TABLE Users(id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+$sqltq[0] = "CREATE TABLE Users(
+id INT(25) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 Email VARCHAR(255) NOT NULL,
-Username VARCHAR(255) NOT NULL,
+FirstName VARCHAR(255) NOT NULL,
+MiddleName VARCHAR(255) NOT NULL,
+SecondName VARCHAR(255) NOT NULL,
 Password VARCHAR(255) NOT NULL,
 last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 CONSTRAINT passuser UNIQUE (EMail,Password)
 )
-
 ";
-//$sqltq[1] = "";
+/*$sqltq[1] = "CREATE TABLE Hijstest(
+ID INT(25) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+Opdrachtnummer ,
+Akkoord BOOL NOT NULL
+)
+";*/
 
 foreach ($sqltq as $value) {
     if($dbsql->query($value)===true){
