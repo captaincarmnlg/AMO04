@@ -1,3 +1,8 @@
+<?php 
+//importing Data
+include_once("DB/DataServer.php");
+
+?>
 <!DOCTYPE html>
 <html>  
 <?php 
@@ -11,10 +16,28 @@ include_once("includes/Header.php");
 ?>
 <div class = "Content_Container">
     <table>
-        
-        
-            
-        
+    <?php 
+        $table = GetHijstable();
+        foreach ($table as $colname => $colum) {
+            echo"<tr>";
+            echo "<th>".$colname."</th>";
+            if ($colname == "Akkoord") {
+                foreach ($colum as $index => $cell) {
+                    if ($cell) {
+                        echo'<td><img src="assets/check.svg" alt="checked" width = "10px"></td>';
+                    }else{
+                        echo"<td></td>";
+                    }
+                }           
+            }else{
+                foreach ($colum as $index => $cell) {
+                
+                    echo"<td>".$cell."</td>";
+                }
+            }
+            echo"</tr>";
+        }
+        ?> 
     </table>
 </div>
 
