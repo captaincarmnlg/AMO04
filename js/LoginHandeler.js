@@ -20,7 +20,7 @@ async function Login (Mail,Password) {
     
     try {
         var resultobj = await result.json();
-        document.cookie = "authtoken="+resultobj.Authtoken;
+        document.coekie = "authtoken="+resultobj.Authtoken;
         window.location.replace("http://localhost/AMO04/Hijstest.php");
     } catch (error) {
         
