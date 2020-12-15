@@ -24,15 +24,15 @@ include_once("includes/Header.php");
             if ($colname == "Akkoord") {
                 foreach ($colum as $index => $cell) {
                     if ($cell) {
-                        echo'<td><img src="assets/check.svg" alt="checked" width = "10px"></td>';
+                        echo.'<td><img src="assets/check.svg" alt="checked" width = "10px"></td>';
                     }else{
-                        echo"<td></td>";
+                        echo."<td></td>";
                     }
                 }           
             }else{
                 foreach ($colum as $index => $cell) {
                 
-                    echo"<td>".$cell."</td>";
+                    echo."<td>".$cell."</td>";
                 }
             }
             echo"</tr>";
