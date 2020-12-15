@@ -9,7 +9,7 @@ async function Login (Mail,Password) {
     console.log(data);
     var result =await fetch("API/LoginAPI.php",
     {
-        method: 'POST',
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json'
             // 'Content-Type': 'application/x-www-form-urlencoded',

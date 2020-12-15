@@ -17,7 +17,7 @@ include_once("includes/Header.php");
 <br>
 
 </form>
-<button id="Login" class="LoginBtn" onclick="onloginbtn()">Login</button>
+<button id="Login" class="LoginBtn" onclick="onloginbtn2()">Login</button>
 </div>
 
 <?php
